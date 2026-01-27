@@ -1,19 +1,22 @@
 <head>
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+    <style>
+        body {
+            background-color: rgb({{ backColor[0][0] }}, {{ backColor[0][1] }}, {{ backColor[0][2] }});
+        }
+    </style>
+</head>
 <body>
     <div class="App">
         <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
+            <img src="{{ slika }}" class="App-logo" alt="logo" />
+            <p>{{ recept["strMealThumb"] }}</p>
             <p class="small">
                 Edit <code>templates/index.html</code> and refresh to see your changes!
             </p>
+            <p>{{ backColor }}</p>
         </header>
     </div>
 </body>
-
 </html>
