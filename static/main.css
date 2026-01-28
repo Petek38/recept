@@ -19,7 +19,8 @@ body {
 }
 
 .App-logo {
-    height: 120px;
+    height: 500px;
+    margin-top: 500px;
     margin-bottom: 20px;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
