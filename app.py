@@ -3,14 +3,12 @@ import requests
 
 app = Flask(__name__)
 
-
-
 @app.route("/")
 def hello_world():
     global call
     call=requests.get("https://www.themealdb.com/api/json/v1/1/random.php").json()
     
-    return render_template("index.html", title="Hello", slika=call["meals"][0]["strMealThumb"], backColor=pridobi_barvo(call["meals"][0]["strMealThumb"],1),ingredients=ingredients())
+    return render_template("index.html", title=call["meals"][0]["strMeal"], slika=call["meals"][0]["strMealThumb"], backColor=pridobi_barvo(call["meals"][0]["strMealThumb"],1),ingredients=ingredients())
 
 def ingredients():
     ingredient_list = [] 
