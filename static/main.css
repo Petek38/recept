@@ -1,44 +1,94 @@
 body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .App {
     text-align: center;
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+    height: 120px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .App-header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 30px;
 }
 
-.App-link {
-    color: #61dafb;
+.App-header p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.5;
 }
 
-.heart {
-    color: #ff0000;
+.ingredients-list {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-.small {
-    font-size: 0.75rem;
+.ingredients-list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ingredients-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.ingredients-list li:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.ingredients-list li span {
+    font-weight: normal;
+    color: #888;
+}
+
+.App-header p.small {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .App-logo {
+        height: 80px;
+    }
+
+    .App-header {
+        font-size: 1rem;
+    }
+
+    .ingredients-list {
+        font-size: 1rem;
+    }
 }

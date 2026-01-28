@@ -11,11 +11,13 @@
     <div class="App">
         <header class="App-header">
             <img src="{{ slika }}" class="App-logo" alt="logo" />
-            <p>{{ recept["strMealThumb"] }}</p>
+            <p>Ingredients:</p>
+            <div class="ingredients-list">
+                {{ ingredients | safe }}
+            </div>
             <p class="small">
                 Edit <code>templates/index.html</code> and refresh to see your changes!
             </p>
-            <p>{{ backColor }}</p>
         </header>
     </div>
 </body>

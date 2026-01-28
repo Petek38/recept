@@ -2,21 +2,29 @@ from flask import Flask, render_template
 import requests
 
 app = Flask(__name__)
-
+call=requests.get("https://www.themealdb.com/api/json/v1/1/random.php").json()
 
 
 @app.route("/")
 def hello_world():
+
+    return render_template("index.html", title="Hello", slika=call["meals"][0]["strMealThumb"], backColor=pridobi_barvo(call["meals"][0]["strMealThumb"],1),ingredients=ingredients())
+
+def ingredients():
     ingredient_list = []
-    for i in range(1,21):
-        call=requests.get("https://www.themealdb.com/api/json/v1/1/random.php").json()
-        if call["meals"][0][f"strIngredient{i}"]:
-            ingredient = call["meals"][0].get(f"strIngredient{i}")
-            measurement = call["meals"][0].get(f"strMeasure{i}")
-            if ingredient and measurement:  # Only add if both ingredient and measurement are present
-                ingredient_list.append((ingredient, measurement))
-    
-    return render_template("index.html", title="Hello", slika=call["meals"][0]["strMealThumb"], backColor=pridobi_barvo(call["meals"][0]["strMealThumb"],1))
+    print(call) 
+    # This will create a list of ingredients with their measurements as HTML
+    ingredient_list = []
+    for i in range(1, 21):
+        ingredient = call["meals"][0].get(f"strIngredient{i}")
+        measurement = call["meals"][0].get(f"strMeasure{i}")
+        if ingredient and measurement:
+            ingredient_list.append(f"<li>{ingredient} - {measurement}</li>")
+
+    # Convert the list to an HTML unordered list
+    ingredient_list = "<ul>" + "".join(ingredient_list) + "</ul>"
+    return ingredient_list
+
 
 
 def pridobi_barvo(url_slike: str, st_barv: int = 2) -> list:
